@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pod 55</title>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <br><br>
+    <h1>Roles</h1>
+    <br><br>
+    <a class="btn btn-warning" role="button" href="{{ url_for('home') }}">back</a>
+    <a class="btn btn-warning" role="button" href="{{ url_for('logout') }}">log out</a>
+    <br><br>
+    <form action="{{ url_for('search') }}" method="get" class="from-group">
+      <dl>
+        <dt>Search:</dt>
+        <dd><input type="text" name="query" class="form-control col-sm-4" ></dd>
+        <br>
+        <dd><input type="submit" class="btn btn-info" value="Search" ></dd>
+      </dl>
+    </form>
+
+    <ul class="entries">
+      {% for entry in entries %}
+        {% if query.lower() in entry.title.lower() or query.lower() in entry.text.lower() %}
+        <li class="entry"><h2 id="{{ entry.post_id }}">{{ entry.first }}</h2>{{ entry.last }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  <script type="text/javascript" src="{{url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
