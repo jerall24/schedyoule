@@ -69,6 +69,8 @@ def search():
         return redirect(url_for('login'))
     query = request.args.get("query")
     entries = db.session.query(models.Role)
+    for entry in entries:
+        print(entry.assignment_id)
     if query:
         return render_template("search.html", entries=entries, query=query)
     return render_template("search.html")
