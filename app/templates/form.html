@@ -13,7 +13,7 @@
 <form action="{{ url_for('add_entry') }}" method="post" class="add_entry form-group">
   <dl>
     <dt>Assignment ID:</dt>
-    <dd><input type="text" size="30" name="assignment_id" class="form-control col-sm-4"></dd>
+    <dd><input type="number" size="30" name="assignment_id" class="form-control col-sm-4"></dd>
     <dt>Demand Type:</dt>
     <dd><input type="text" size="30" name="demand_type" class="form-control col-sm-4"></dd>
     <dt>Career Track:</dt>
@@ -37,11 +37,11 @@
     <dt>project_client_supply_demand_specialist:</dt>
     <dd><input type="text" size="30" name="project_client_supply_demand_specialist" class="form-control col-sm-4"></dd>
     <dt>sold:</dt>
-    <dd><input type="text" size="30" name="sold" class="form-control col-sm-4"></dd>
+    <dd><input type="text" size="30" name="sold" placeholder="Yes/No" class="form-control col-sm-4"></dd>
     <dt>gcp_preference:</dt>
-    <dd><input type="text" size="30" name="gcp_preference" class="form-control col-sm-4"></dd>
+    <dd><input type="text" size="30" name="gcp_preference" placeholder="Y/N" class="form-control col-sm-4"></dd>
     <dt>client_contract_based:</dt>
-    <dd><input type="text" size="30" name="client_contract_based" class="form-control col-sm-4"></dd>
+    <dd><input type="text" size="30" name="client_contract_based" placeholder="Yes/No" class="form-control col-sm-4"></dd>
     <dt>assignment_title:</dt>
     <dd><input type="text" size="30" name="assignment_title" class="form-control col-sm-4"></dd>
     <dt>description:</dt>
@@ -49,19 +49,19 @@
     <dt>fulfillment_channel:</dt>
     <dd><input type="text" size="30" name="fulfillment_channel" class="form-control col-sm-4"></dd>
     <dt>created_date:</dt>
-    <dd><input type="text" size="30" name="created_date" class="form-control col-sm-4"></dd>
+    <dd><input type="text" size="30" name="created_date" placeholder="yyyy-mm-dd" class="form-control col-sm-4"></dd>
     <dt>source:</dt>
     <dd><input type="text" size="30" name="source" class="form-control col-sm-4"></dd>
     <dt>requested_start_date:</dt>
-    <dd><input type="text" size="30" name="requested_start_date" class="form-control col-sm-4"></dd>
+    <dd><input type="text" size="30" name="requested_start_date" placeholder="yyyy-mm-dd" class="form-control col-sm-4"></dd>
     <dt>end_date:</dt>
-    <dd><input type="text" size="30" name="end_date" class="form-control col-sm-4"></dd>
+    <dd><input type="text" size="30" name="end_date" placeholder="yyyy-mm-dd" class="form-control col-sm-4"></dd>
     <dt>status:</dt>
     <dd><input type="text" size="30" name="status" class="form-control col-sm-4"></dd>
     <dt>career_level_from:</dt>
-    <dd><input type="text" size="30" name="career_level_from" class="form-control col-sm-4"></dd>
+    <dd><input type="number" size="30" name="career_level_from" class="form-control col-sm-4"></dd>
     <dt>career_level_to:</dt>
-    <dd><input type="text" size="30" name="career_level_to" class="form-control col-sm-4"></dd>
+    <dd><input type="number" size="30" name="career_level_to" class="form-control col-sm-4"></dd>
     <dt>talent_segment:</dt>
     <dd><input type="text" size="30" name="talent_segment" class="form-control col-sm-4"></dd>
     <dt>assigned_role:</dt>
@@ -89,7 +89,7 @@
     <dt>role_client_supply_demand_specialist:</dt>
     <dd><input type="text" size="30" name="role_client_supply_demand_specialist" class="form-control col-sm-4"></dd>
     <dt>candidates:</dt>
-    <dd><input type="text" size="30" name="candidates" class="form-control col-sm-4"></dd>
+    <dd><input type="number" size="30" name="candidates" class="form-control col-sm-4"></dd>
     <br>
     <dd><input type="submit" class="btn btn-primary" value="Add"></dd>
   </dl>
