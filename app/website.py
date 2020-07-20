@@ -72,7 +72,7 @@ def logout():
     return redirect(url_for("home"))
 
 
-@heroku_app.route("/search/", methods=["GET"])
+@heroku_app.route("/search", methods=["GET"])
 def search():
     if not session.get("logged_in"):
         return redirect(url_for('login'))
@@ -81,6 +81,14 @@ def search():
     if query:
         return render_template("search.html", entries=entries, query=query)
     return render_template("search.html", entries=entries)
+
+
+@heroku_app.route("/cards", methods=["GET"])
+def cards():
+    if not session.get("logged_in"):
+        return redirect(url_for('login'))
+    entries = db.session.query(models.Role)
+    return render_template("cards.html", entries=entries)
 
 
 @heroku_app.route("/add", methods=["POST"])
