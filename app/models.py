@@ -103,6 +103,3 @@ class Role(db.Model):
         self.role_client_supply_demand_specialist = role_client_supply_demand_specialist
         self.candidates = candidates
 
-
-    def __repr__(self):
-        return f'<title {self.body}>'
