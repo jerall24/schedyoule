@@ -60,7 +60,6 @@ def login():
 def logout():
     """User logout/authentication/session management."""
     session.pop("logged_in", None)
-    flash("You were logged out")
     return redirect(url_for("home"))
 
 
@@ -73,6 +72,37 @@ def search():
     if query:
         return render_template("search.html", entries=entries, query=query)
     return render_template("search.html")
+
+
+@heroku_app.route("/add", methods=["POST"])
+def add_entry():
+    """Adds new post to the database."""
+    if not session.get("logged_in"):
+        abort(401)
+    new_entry = models.Role(request.form["assignment_id"], request.form["demand_type"], \
+                request.form["career_track"], request.form["location_radius"], request.form["source_location"], \
+                request.form["gu"], request.form["assignment_fulfillment_entity"], request.form["client"], \
+                request.form["project"], request.form["project_metro_city"], request.form["project_supervising_entity"], \
+                request.form["project_client_supply_demand_specialist"], request.form["sold"], \
+                request.form["gcp_preference"], request.form["client_contract_based"], \
+                request.form["assignment_title"], request.form["description"], request.form["fulfillment_channel"], \
+                request.form["created_date"], request.form["source"], request.form["requested_start_date"], \
+                request.form["end_date"], request.form["status"], request.form["career_level_from"], \
+                request.form["career_level_to"], request.form["talent_segment"], request.form["assigned_role"], \
+                request.form["work_location"], \
+                request.form["assignment_primary_specialization_level_one"], \
+                request.form["assignment_primary_specialization_level_two"], \
+                request.form["assignment_primary_specialization_level_three"], \
+                request.form["assignment_primary_specialization_level_four"], \
+                request.form["assignment_primary_specialization_level_five"], \
+                request.form["assignment_primary_specialization_paths"], \
+                request.form["skill_and_proficiency"], request.form["primary_contact"], \
+                request.form["assignment_audit"], request.form["role_client_supply_demand_specialist"], \
+                request.form["candidates"])
+    db.session.add(new_entry)
+    db.session.commit()
+    return redirect(url_for("search"))
+
 
 if __name__ == '__main__':
     heroku_app.run(debug=True)
