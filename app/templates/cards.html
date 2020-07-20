@@ -13,24 +13,18 @@
     <a class="btn btn-warning" role="button" href="{{ url_for('logout') }}">logout</a>
     <a class="btn btn-warning" role="button" href="{{ url_for('search') }}">table</a>
     <br><br>
-    <div class="card-group">
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
+
+    {% for entry in entries %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ entry.assignment_title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">entry.work_location</h6>
+            <p class="card-text">{{ entry.description }}</p>
+            <a href="#" class="card-link">Card link</a>
+            <p class="card-text"><small class="text-muted">Posted on {{ entry.created_date }}</small></p>
         </div>
-        {% for entry in entries %}
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{{ entry.assignment_title }}</h5>
-              <p class="card-text">{{ entry.description }}</p>
-              <p class="card-text"><small class="text-muted">Posted on {{ entry.created_date }}</small></p>
-            </div>
-        </div>
-        {% endfor %}
-      </div>
+    </div>
+    {% endfor %}
   </div>
   <script type="text/javascript" src="{{url_for('static', filename='main.js') }}"></script>
 </body>
