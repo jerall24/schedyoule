@@ -1,6 +1,7 @@
 {% extends "theme.html" %}
 {% block form %}
 <br><br>
+<h1>Create a new role</h1>
 {% if not session.logged_in %}
   <a class="btn btn-success" role="button" href="{{ url_for('login') }}">log in</a>
 {% else %}
@@ -12,83 +13,108 @@
 {% if session.logged_in %}
 <form action="{{ url_for('add_entry') }}" method="post" class="add_entry form-group">
   <dl>
-    <dt>Assignment ID:</dt>
+    <dt>Assignment ID</dt>
     <dd><input type="number" size="30" name="assignment_id" class="form-control col-sm-4"></dd>
-    <dt>Demand Type:</dt>
+    <dt>Demand Type</dt>
     <dd><input type="text" size="30" name="demand_type" class="form-control col-sm-4"></dd>
-    <dt>Career Track:</dt>
+    <dt>Career Track</dt>
     <dd><input type="text" size="30" name="career_track" class="form-control col-sm-4"></dd>
-    <dt>location_radius:</dt>
+    <dt>Location Radius</dt>
     <dd><input type="text" size="30" name="location_radius" class="form-control col-sm-4"></dd>
-    <dt>source_location:</dt>
+    <dt>Source Location</dt>
     <dd><input type="text" size="30" name="source_location" class="form-control col-sm-4"></dd>
-    <dt>GU:</dt>
+    <dt>GU</dt>
     <dd><input type="text" size="30" name="gu" class="form-control col-sm-4"></dd>
-    <dt>assignment_fulfillment_entity:</dt>
+    <dt>Assignment Fulfillment Entity</dt>
     <dd><input type="text" size="30" name="assignment_fulfillment_entity" class="form-control col-sm-4"></dd>
-    <dt>client:</dt>
+    <dt>Client</dt>
     <dd><input type="text" size="30" name="client" class="form-control col-sm-4"></dd>
-    <dt>project:</dt>
+    <dt>Project</dt>
     <dd><input type="text" size="30" name="project" class="form-control col-sm-4"></dd>
-    <dt>project_metro_city:</dt>
+    <dt>Project Metro City</dt>
     <dd><input type="text" size="30" name="project_metro_city" class="form-control col-sm-4"></dd>
-    <dt>project_supervising_entity:</dt>
+    <dt>Project supervising_entity</dt>
     <dd><input type="text" size="30" name="project_supervising_entity" class="form-control col-sm-4"></dd>
-    <dt>project_client_supply_demand_specialist:</dt>
+    <dt>Project client supply demand specialist</dt>
     <dd><input type="text" size="30" name="project_client_supply_demand_specialist" class="form-control col-sm-4"></dd>
-    <dt>sold:</dt>
-    <dd><input type="text" size="30" name="sold" placeholder="Yes/No" class="form-control col-sm-4"></dd>
-    <dt>gcp_preference:</dt>
-    <dd><input type="text" size="30" name="gcp_preference" placeholder="Y/N" class="form-control col-sm-4"></dd>
-    <dt>client_contract_based:</dt>
-    <dd><input type="text" size="30" name="client_contract_based" placeholder="Yes/No" class="form-control col-sm-4"></dd>
-    <dt>assignment_title:</dt>
+    
+    <dt>Sold</dt>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="sold" id="sold_yes" value="Yes">
+      <label class="form-check-label" for="sold_yes">Yes</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="sold" id="sold_no" value="No">
+      <label class="form-check-label" for="sold_no">No</label>
+    </div>
+    
+    <dt>GCP Preference</dt>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="gcp_preference" id="gcp_preference_yes" value="Y">
+      <label class="form-check-label" for="gcp_preference_yes">Yes</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="gcp_preference" id="gcp_preference_no" value="N">
+      <label class="form-check-label" for="gcp_preference_no">No</label>
+    </div>
+
+    <dt>Client Contract Based</dt>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="client_contract_based" id="client_contract_based_yes" value="Yes">
+      <label class="form-check-label" for="client_contract_based_yes">Yes</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="client_contract_based" id="client_contract_based_no" value="No">
+      <label class="form-check-label" for="client_contract_based_no">No</label>
+    </div>    
+    
+    <dt>Assignment Title</dt>
     <dd><input type="text" size="30" name="assignment_title" class="form-control col-sm-4"></dd>
-    <dt>description:</dt>
+    <dt>Description</dt>
     <dd><input type="text" size="30" name="description" class="form-control col-sm-4"></dd>
-    <dt>fulfillment_channel:</dt>
+    <dt>Fulfillment Channel</dt>
     <dd><input type="text" size="30" name="fulfillment_channel" class="form-control col-sm-4"></dd>
-    <dt>created_date:</dt>
+    <dt>Created Date</dt>
     <dd><input type="text" size="30" name="created_date" placeholder="yyyy-mm-dd" class="form-control col-sm-4"></dd>
-    <dt>source:</dt>
+    <dt>Source</dt>
     <dd><input type="text" size="30" name="source" class="form-control col-sm-4"></dd>
-    <dt>requested_start_date:</dt>
+    <dt>Requested Start Date</dt>
     <dd><input type="text" size="30" name="requested_start_date" placeholder="yyyy-mm-dd" class="form-control col-sm-4"></dd>
-    <dt>end_date:</dt>
+    <dt>End Date</dt>
     <dd><input type="text" size="30" name="end_date" placeholder="yyyy-mm-dd" class="form-control col-sm-4"></dd>
-    <dt>status:</dt>
+    <dt>Status</dt>
     <dd><input type="text" size="30" name="status" class="form-control col-sm-4"></dd>
-    <dt>career_level_from:</dt>
+    <dt>Career Level From</dt>
     <dd><input type="number" size="30" name="career_level_from" class="form-control col-sm-4"></dd>
-    <dt>career_level_to:</dt>
+    <dt>Career Level To</dt>
     <dd><input type="number" size="30" name="career_level_to" class="form-control col-sm-4"></dd>
-    <dt>talent_segment:</dt>
+    <dt>Talent Segment</dt>
     <dd><input type="text" size="30" name="talent_segment" class="form-control col-sm-4"></dd>
-    <dt>assigned_role:</dt>
+    <dt>Assigned Role</dt>
     <dd><input type="text" size="30" name="assigned_role" class="form-control col-sm-4"></dd>
-    <dt>work_location:</dt>
+    <dt>Work Location</dt>
     <dd><input type="text" size="30" name="work_location" class="form-control col-sm-4"></dd>
-    <dt>assignment_primary_specialization_level_one:</dt>
+    <dt>Assignment Primary Specialization Level 1</dt>
     <dd><input type="text" size="30" name="assignment_primary_specialization_level_one" class="form-control col-sm-4"></dd>
-    <dt>assignment_primary_specialization_level_two:</dt>
+    <dt>Assignment Primary Specialization Level 2</dt>
     <dd><input type="text" size="30" name="assignment_primary_specialization_level_two" class="form-control col-sm-4"></dd>
-    <dt>assignment_primary_specialization_level_three:</dt>
+    <dt>Assignment Primary Specialization Level 3</dt>
     <dd><input type="text" size="30" name="assignment_primary_specialization_level_three" class="form-control col-sm-4"></dd>
-    <dt>assignment_primary_specialization_level_four:</dt>
+    <dt>Assignment Primary Specialization Level 4</dt>
     <dd><input type="text" size="30" name="assignment_primary_specialization_level_four" class="form-control col-sm-4"></dd>
-    <dt>assignment_primary_specialization_level_five:</dt>
+    <dt>Assignment Primary Specialization Level 5</dt>
     <dd><input type="text" size="30" name="assignment_primary_specialization_level_five" class="form-control col-sm-4"></dd>
-    <dt>assignment_primary_specialization_paths:</dt>
+    <dt>Assignment Primary Specialization Paths</dt>
     <dd><input type="text" size="30" name="assignment_primary_specialization_paths" class="form-control col-sm-4"></dd>
-    <dt>skill_and_proficiency:</dt>
+    <dt>Skill and Proficiency</dt>
     <dd><input type="text" size="30" name="skill_and_proficiency" class="form-control col-sm-4"></dd>
-    <dt>primary_contact:</dt>
+    <dt>Primary Contact</dt>
     <dd><input type="text" size="30" name="primary_contact" class="form-control col-sm-4"></dd>
-    <dt>assignment_audit:</dt>
+    <dt>Assignment Audit</dt>
     <dd><input type="text" size="30" name="assignment_audit" class="form-control col-sm-4"></dd>
-    <dt>role_client_supply_demand_specialist:</dt>
+    <dt>Role Client Supply Demand Specialist</dt>
     <dd><input type="text" size="30" name="role_client_supply_demand_specialist" class="form-control col-sm-4"></dd>
-    <dt>candidates:</dt>
+    <dt>Candidates</dt>
     <dd><input type="number" size="30" name="candidates" class="form-control col-sm-4"></dd>
     <br>
     <dd><input type="submit" class="btn btn-primary" value="Add"></dd>
