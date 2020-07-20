@@ -28,7 +28,7 @@ heroku_app = Flask(__name__)
 heroku_app.config.from_object(__name__)
 db = SQLAlchemy(heroku_app)
 
-import app.models
+import app.models as models
 
 
 @heroku_app.route('/')
