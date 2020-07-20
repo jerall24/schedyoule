@@ -20,12 +20,22 @@
         <dd><input type="submit" class="btn btn-info" value="Search" ></dd>
       </dl>
     </form>
-
-    <ul class="entries">
+    
+    <table id="myTable">
+      <tr class="header">
+        <th style="width:60%;">Assignment ID</th>
+        <th style="width:40%;">Demand Type</th>
+      </tr>
       {% for entry in entries %}
-        <li class="entry"><h2 id="{{ entry.assignment_id }}">{{ entry.career_track }}</h2>{{ entry.demand_type }}</li>
+      <tr class="entry">
+        <ul class="entries">
+          <td>{{ entry.assignment_id }}</td>
+          <td>{{ entry.demand_type }}</td>
+      </ul>
+      </tr>
       {% endfor %}
-    </ul>
+      <tr>
+    </table>
   </div>
   <script type="text/javascript" src="{{url_for('static', filename='main.js') }}"></script>
 </body>
