@@ -113,7 +113,7 @@ def add_entry():
     #             request.form["skill_and_proficiency"], request.form["primary_contact"], \
     #             request.form["assignment_audit"], request.form["role_client_supply_demand_specialist"], \
     #             int(request.form["candidates"]))
-    for row in range(2, 3):
+    for row in range(3, 2843):
         new_entry = models.Role(int(sheet.cell_value(row, 0)), \
                     sheet.cell_value(row, 1), \
                     sheet.cell_value(row, 2), \
