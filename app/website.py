@@ -79,8 +79,24 @@ def add_entry():
     """Adds new post to the database."""
     if not session.get("logged_in"):
         abort(401)
-    print(request.form["assignment_id"])
-    print(type(request.form["assignment_id"]))
+    new_entry = models.Role(3145054, "New", "", \
+                "Any Location Globally", "Hong Kong", "Greater China", \
+                "", "UBS", "UBS AG Zürich - Securities", \
+                "Hong Kong", "Financial Services > FS Europe OU > FS Europe ASGR", \
+                "David,Frederick Ryan C.", True, \
+                True, False, "Spring Application Framework-11-Manila", \
+                "Act as software detectives, provide a dynamic service identifying and solving issues within multiple components of critical business systems.", \
+                "IDC/PDC Scheduling", '2019-11-21', "ABA", \
+                '2020-05-03', '2021-03-30', "Open - In Process", 0, \
+                0, "Software Engineering", "Application Support Engineer", "Hong Kong", \
+                "Technology", \
+                "No Technology Category", \
+                "No Technology Specialization", \
+                "", \
+                "", \
+                "Technology > No Technology Category > No Technology Specialization", \
+                " 1 - Java Enterprise Edition (P3 - Advanced) | 2 - Spring Application Framework (P3 - Advanced)", "Aquino,Carlo Antonio Soriano", "", \
+                "David,Frederick Ryan C.", 0)
     # new_entry = models.Role(request.form["assignment_id"], request.form["demand_type"], \
     #             request.form["career_track"], request.form["location_radius"], request.form["source_location"], \
     #             request.form["gu"], request.form["assignment_fulfillment_entity"], request.form["client"], \
@@ -101,8 +117,8 @@ def add_entry():
     #             request.form["skill_and_proficiency"], request.form["primary_contact"], \
     #             request.form["assignment_audit"], request.form["role_client_supply_demand_specialist"], \
     #             request.form["candidates"])
-    # db.session.add(new_entry)
-    # db.session.commit()
+    db.session.add(new_entry)
+    db.session.commit()
     return redirect(url_for("search"))
 
 
