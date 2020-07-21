@@ -11,7 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 import xlrd
 
 # Give the location of the file
-loc = ("position_descriptions.xlsx")
+loc = ("app/position_descriptions.xlsx")
 
 # To open Workbook
 wb = xlrd.open_workbook(loc)
