@@ -16,13 +16,15 @@
     <form action="{{ url_for('search') }}" method="get" class="from-group">
       <dl>
         <dt>Search:</dt>
-        <dd><input type="text" name="query" class="form-control col-sm-4" ></dd>
+        <dd><input type="text" name="query" id="myInput" onkeyup="myFunction()"></dd>
         <br>
         <dd><input type="submit" class="btn btn-info" value="Search" ></dd>
       </dl>
     </form>
     
-    <table class="table table-hover">
+
+    
+    <table class="table table-hover" id="myTable">
       <thead class="thead-light">
         <tr>
           <th style="width:10%;">ID</th>
