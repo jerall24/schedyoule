@@ -24,17 +24,19 @@
     
     <table id="myTable">
       <tr class="header">
-        <th style="width:20%;">Assignment ID</th>
-        <th style="width:20%;">Demand Type</th>
-        <th style="width:40%;">Career Track</th>
+        <th style="width:10%;">ID</th>
+        <th style="width:30%;">Role</th>
+        <th style="width:20%;">Talent Segment</th>
+        <th style="width:20%;">Work Location</th>
         <th style="width:20%;">Location Radius</th>
       </tr>
       {% for entry in entries %}
       <tr class="entry">
         <ul class="entries">
           <td>{{ entry.assignment_id }}</td>
-          <td>{{ entry.demand_type }}</td>
-          <td>{{ entry.career_track }}</td>
+          <td>{{ entry.assigned_role }}</td>
+          <td>{{ entry.talent_segment }}</td>
+          <td>{{ entry.work_location }}</td>
           <td>{{ entry.location_radius }}</td>
       </ul>
       </tr>

@@ -17,9 +17,9 @@
         {% for entry in entries %}
         <div class="card" style="width: 18rem; max-height: 20 rem;">
             <div class="card-body">
-                <h5 class="card-title">{{ entry.assignment_title }}</h5>
+                <h5 class="card-title">{{ entry.assigned_role }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ entry.work_location }}</h6>
-                <p class="card-text">{{ entry.description }}</p>
+                <p class="card-text">{{ entry.talent_segment }}</p>
                 <a href="#" class="card-link">Card link</a>
                 <p class="card-text"><small class="text-muted">Posted on {{ entry.created_date }}</small></p>
             </div>
