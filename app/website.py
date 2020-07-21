@@ -7,15 +7,15 @@ from flask import Flask, request, session, g, redirect, url_for, \
                   abort, render_template, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
-# Reading an excel file using Python 
-import xlrd 
-  
-# Give the location of the file 
-loc = ("position_descriptions.xlsx") 
-  
-# To open Workbook 
-wb = xlrd.open_workbook(loc) 
-sheet = wb.sheet_by_index(0) 
+# Reading an excel file using Python
+import xlrd
+
+# Give the location of the file
+loc = ("position_descriptions.xlsx")
+
+# To open Workbook
+wb = xlrd.open_workbook(loc)
+sheet = wb.sheet_by_index(0)
 
 # get the folder where this file runs
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -54,6 +54,9 @@ def exmpl():
 def login():
     """User login/authentication/session management."""
     error = None
+    if session.get("logged_in"):
+        return redirect(url_for('home'))
+
     if request.method == 'POST':
         if request.form['username'] != heroku_app.config['USERNAME']:
             error = 'Invalid username'
@@ -124,7 +127,7 @@ def add_entry():
                 int(request.form["candidates"]))
     db.session.add(new_entry)
     db.session.commit()
-    
+
     return redirect(url_for("search"))
 
 
